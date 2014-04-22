@@ -19,7 +19,7 @@
         android:src="@drawable/logo_nologo" />
 
     <EditText
-        android:id="@+id/userid"
+        android:id="@+id/useridEditTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
@@ -33,7 +33,7 @@
     </EditText>
 
     <EditText
-        android:id="@+id/passwd"
+        android:id="@+id/passwdEditTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"

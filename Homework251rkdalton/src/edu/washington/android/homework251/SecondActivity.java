@@ -6,6 +6,11 @@ import android.app.Activity;
 import android.view.Menu;
 import android.widget.TextView;
 
+/**
+ * SecondActivity class
+ * @author rick
+ *
+ */
 public class SecondActivity extends Activity
 {
 
@@ -16,10 +21,15 @@ public class SecondActivity extends Activity
   {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_second);
+    
+    /* get the model */
     Homework251model model = Homework251model.getInstance();
+    
+    /* get the TextViews in the layout */
     useridTxt = (TextView) findViewById(R.id.useridTxt);
     passwdTxt = (TextView) findViewById(R.id.passwdTxt);
     
+    /* set the values from the model */
     useridTxt.setText(model.getUsername());
     passwdTxt.setText(model.getPassword());
     
