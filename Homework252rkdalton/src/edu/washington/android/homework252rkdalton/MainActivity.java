@@ -16,7 +16,8 @@ import android.view.ViewGroup;
 import android.os.Build;
 
 public class MainActivity extends ActionBarActivity
-  implements OnFragmentInteractionListener, edu.washington.android.homework252rkdalton.DetailFragment.OnFragmentInteractionListener
+  implements OnFragmentInteractionListener, 
+  edu.washington.android.homework252rkdalton.DetailFragment.OnFragmentInteractionListener
 {
   TaskManager tm;
 
@@ -24,7 +25,7 @@ public class MainActivity extends ActionBarActivity
   protected void onCreate(Bundle savedInstanceState)
   {
     super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_main_land);
+    setContentView(R.layout.activity_main);
     //tm = TaskManager.getInstance();
     //tm.setDao(new TaskSqliteDao(this));
 
