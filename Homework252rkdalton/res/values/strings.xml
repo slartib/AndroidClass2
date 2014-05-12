@@ -12,5 +12,6 @@
     <string name="task_text_hint">Task Text</string>
     <string name="ok_button">OK</string>
     <string name="cancel_button">Cancel</string>
+    <string name="add_task_dialog_title">Add Task</string>
 
 </resources>

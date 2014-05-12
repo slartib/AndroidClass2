@@ -1281,6 +1281,7 @@ containing a value of this type.
         public static final int abc_shareactionprovider_share_with_application=0x7f0a000b;
         public static final int action_settings=0x7f0a000f;
         public static final int add_task=0x7f0a0010;
+        public static final int add_task_dialog_title=0x7f0a0018;
         public static final int app_name=0x7f0a000d;
         public static final int cancel_button=0x7f0a0017;
         public static final int delete_task=0x7f0a0011;

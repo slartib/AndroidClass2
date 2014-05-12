@@ -1,5 +1,6 @@
 package edu.washington.android.homework252rkdalton;
 
+import edu.washington.android.homework252rkdalton.AddTaskDialogFragment.AddTaskDialogListener;
 import edu.washington.android.homework252rkdalton.TaskFragment.OnFragmentInteractionListener;
 import edu.washington.android.homework252rkdalton.model.TaskManager;
 import edu.washington.android.homework252rkdalton.model.TaskSqliteDao;
@@ -17,7 +18,8 @@ import android.os.Build;
 
 public class MainActivity extends ActionBarActivity
   implements OnFragmentInteractionListener, 
-  edu.washington.android.homework252rkdalton.DetailFragment.OnFragmentInteractionListener
+  edu.washington.android.homework252rkdalton.DetailFragment.OnFragmentInteractionListener,
+  AddTaskDialogListener
 {
   TaskManager tm;
 
@@ -25,9 +27,10 @@ public class MainActivity extends ActionBarActivity
   protected void onCreate(Bundle savedInstanceState)
   {
     super.onCreate(savedInstanceState);
+    tm = TaskManager.getInstance();
+    tm.setDao(new TaskSqliteDao(this));
+    
     setContentView(R.layout.activity_main);
-    //tm = TaskManager.getInstance();
-    //tm.setDao(new TaskSqliteDao(this));
 
   /*  if (savedInstanceState == null)
     {
@@ -57,8 +60,19 @@ public class MainActivity extends ActionBarActivity
     {
       return true;
     }
+    if (id == R.id.action_add)
+    {
+      AddTaskDialogFragment addTaskDialog = new AddTaskDialogFragment();
+      addTaskDialog.show(getSupportFragmentManager(), "addTaskDialog");
+    }
+    if (id == R.id.action_delete)
+    {
+      
+    }
     return super.onOptionsItemSelected(item);
   }
+  
+  
 
   /**
    * A placeholder fragment containing a simple view.
@@ -89,6 +103,33 @@ public class MainActivity extends ActionBarActivity
 
   @Override
   public void onFragmentInteraction(Uri uri)
+  {
+    // TODO Auto-generated method stub
+    
+  }
+
+  @Override
+  public void onDialogPositiveClick(AddTaskDialogFragment dialog)
+  {
+    String taskName = dialog.getTaskName();
+    String taskText = dialog.getTaskText();
+    if (taskName != null && taskName != "")
+    {
+      try
+      {
+        tm.addTask(taskName, taskText);
+      }
+      catch (Exception e)
+      {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+      }
+    }
+    
+  }
+
+  @Override
+  public void onDialogNegativeClick(AddTaskDialogFragment dialog)
   {
     // TODO Auto-generated method stub
     

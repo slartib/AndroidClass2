@@ -13,6 +13,8 @@ import android.widget.ListAdapter;
 import android.widget.TextView;
 
 import edu.washington.android.homework252rkdalton.dummy.DummyContent;
+import edu.washington.android.homework252rkdalton.model.Task;
+import edu.washington.android.homework252rkdalton.model.TaskManager;
 
 /**
  * A fragment representing a list of Items.
@@ -25,6 +27,7 @@ public class TaskFragment extends Fragment implements
     AbsListView.OnItemClickListener
 {
 
+  private TaskManager tm = TaskManager.getInstance(); 
   // TODO: Rename parameter arguments, choose names that match
   // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
   private static final String ARG_PARAM1 = "param1";
@@ -71,6 +74,7 @@ public class TaskFragment extends Fragment implements
   {
     super.onCreate(savedInstanceState);
 
+    
     if (getArguments() != null)
     {
       mParam1 = getArguments().getString(ARG_PARAM1);
@@ -78,9 +82,20 @@ public class TaskFragment extends Fragment implements
     }
 
     // TODO: Change Adapter to display your content
-    mAdapter = new ArrayAdapter<DummyContent.DummyItem>(getActivity(),
+   /* mAdapter = new ArrayAdapter<DummyContent.DummyItem>(getActivity(),
         android.R.layout.simple_list_item_1, android.R.id.text1,
-        DummyContent.ITEMS);
+        DummyContent.ITEMS); */
+    try
+    {
+      mAdapter = new ArrayAdapter<Task>(getActivity(),
+          android.R.layout.simple_list_item_1, android.R.id.text1,
+          tm.getTasks());
+    }
+    catch (Exception e)
+    {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    }
   }
 
   @Override
