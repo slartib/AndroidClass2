@@ -22,6 +22,7 @@ public class MainActivity extends ActionBarActivity
   AddTaskDialogListener
 {
   TaskManager tm;
+  TaskFragment tf;
 
   @Override
   protected void onCreate(Bundle savedInstanceState)
@@ -31,6 +32,8 @@ public class MainActivity extends ActionBarActivity
     tm.setDao(new TaskSqliteDao(this));
     
     setContentView(R.layout.activity_main);
+    
+    tf = (TaskFragment) getSupportFragmentManager().findFragmentById(R.id.task_list);
 
   /*  if (savedInstanceState == null)
     {
